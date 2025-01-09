@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein Blog</title>
-    <link rel="stylesheet" href="{{ '/css/main.css' | url }}"/>
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}" />
 </head>
 
 <body>
-    <h1>{{ title | default: "Hallo"}}</h1>
-    fdsfds
-    {{ content}}
-    <p>end</p>
+    <main>
+        {{ content}}
+
+        <footer>
+            <p class="small">Copyright 2025 · Last Updated 07 January 2025 · WIP</p>
+        </footer>
+    </main>
 </body>
 
 </html>

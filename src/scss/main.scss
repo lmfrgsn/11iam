@@ -2,3 +2,39 @@
 //     background: pink;
 //     color: yellow;
 // }
+@use '_reset';
+
+body {
+    background-color: #FEFCFB;
+    color: #281E59;
+    font-family: 'PP Neue Montreal', sans-serif;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 1.38rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+}
+
+h5 {
+    font-size: 0.9rem;
+}
+
+strong {
+    font-weight: 600;
+}
