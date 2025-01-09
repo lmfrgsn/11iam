@@ -48,10 +48,26 @@ body {
   color: #281E59;
   font-family: "PP Neue Montreal", sans-serif;
 }
+body::before {
+  content: "";
+  background: rgb(253, 247, 244);
+  background: radial-gradient(circle, rgb(245, 227, 219) 0%, rgb(254, 252, 251) 55%);
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: -350px;
+  height: 700px;
+  position: absolute;
+  z-index: -100;
+}
 
 main {
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 h1,

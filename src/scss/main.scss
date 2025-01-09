@@ -8,11 +8,30 @@ body {
     background-color: #FEFCFB;
     color: #281E59;
     font-family: 'PP Neue Montreal', sans-serif;
+
+    &::before {
+        content: '';
+        // background: rgb(14, 164, 37);
+        // background: radial-gradient(circle, #f35b0f 0%, rgb(6, 55, 205) 100%);
+        background: rgb(253, 247, 244);
+        background: radial-gradient(circle, rgba(245, 227, 219, 1) 0%, rgba(254, 252, 251, 1) 55%);
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: -350px;
+        height: 700px;
+        position: absolute;
+        z-index: -100;
+    }
 }
 
 main {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 h1,
