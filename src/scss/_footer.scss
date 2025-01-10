@@ -38,6 +38,7 @@ footer {
     width: max-content;
 }
 
-[tooltip]:hover::after {
+[tooltip]:hover::after,
+[tooltip]:active::after {
     opacity: 1
 }

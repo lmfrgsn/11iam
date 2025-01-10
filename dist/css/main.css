@@ -116,7 +116,8 @@ footer {
   width: max-content;
 }
 
-[tooltip]:hover::after {
+[tooltip]:hover::after,
+[tooltip]:active::after {
   opacity: 1;
 }
 
@@ -161,15 +162,15 @@ h5 {
 }
 
 h1 {
-  font-size: 1.38rem;
+  font-size: 1.4rem;
 }
 
 h2 {
-  font-size: 1.15rem;
+  font-size: 1.4rem;
 }
 
 h5 {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 strong {
