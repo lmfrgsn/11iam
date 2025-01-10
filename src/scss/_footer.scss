@@ -1,0 +1,43 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currently-widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #BAD0E8;
+    border-radius: 50%;
+    cursor: default;
+}
+
+[tooltip] {
+    position: relative;
+}
+
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    transform: translateX(-100%) translateY(-50%);
+    opacity: 0;
+    left: 0%;
+    top: 50%;
+    margin-left: -4px;
+    background: #292d36;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    width: max-content;
+}
+
+[tooltip]:hover::after {
+    opacity: 1
+}

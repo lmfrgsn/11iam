@@ -43,6 +43,83 @@ p {
   isolation: isolate;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .home-link {
+  display: flex;
+  align-items: center;
+}
+header .home-link a {
+  margin-left: 0.5rem;
+  color: #281E59;
+  text-decoration: none;
+  font-weight: 800;
+}
+header .header-profile {
+  border-radius: 50%;
+  border: 1px solid #FDFCFC;
+}
+header .nav-link {
+  color: #281E59;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 2rem;
+  padding: 0.25rem 1rem;
+}
+header .nav-link svg {
+  display: inline-block;
+}
+header .nav-link:hover {
+  background-color: rgb(245, 227, 219);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currently-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
+  background-color: #fff;
+  border: 1px solid #BAD0E8;
+  border-radius: 50%;
+  cursor: default;
+}
+
+[tooltip] {
+  position: relative;
+}
+
+[tooltip]::after {
+  content: attr(tooltip);
+  position: absolute;
+  transform: translateX(-100%) translateY(-50%);
+  opacity: 0;
+  left: 0%;
+  top: 50%;
+  margin-left: -4px;
+  background: #292d36;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  width: max-content;
+}
+
+[tooltip]:hover::after {
+  opacity: 1;
+}
+
 body {
   background-color: #FEFCFB;
   color: #281E59;
@@ -53,12 +130,17 @@ body::before {
   background: rgb(253, 247, 244);
   background: radial-gradient(circle, rgb(245, 227, 219) 0%, rgb(254, 252, 251) 55%);
   width: 100%;
-  left: 0;
-  right: 0;
-  top: -350px;
-  height: 700px;
+  max-width: 1200px;
+  left: calc(50% - 600px);
+  top: -600px;
+  height: 1200px;
   position: absolute;
   z-index: -100;
+}
+@media only screen and (max-width: 1200px) {
+  body::before {
+    left: auto;
+  }
 }
 
 main {

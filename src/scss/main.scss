@@ -3,6 +3,8 @@
 //     color: yellow;
 // }
 @use '_reset';
+@use '_header';
+@use '_footer';
 
 body {
     background-color: #FEFCFB;
@@ -16,13 +18,31 @@ body {
         background: rgb(253, 247, 244);
         background: radial-gradient(circle, rgba(245, 227, 219, 1) 0%, rgba(254, 252, 251, 1) 55%);
         width: 100%;
-        left: 0;
-        right: 0;
-        top: -350px;
-        height: 700px;
+        max-width: 1200px;
+        left: calc(50% - 600px);
+        top: -600px;
+        height: 1200px;
         position: absolute;
         z-index: -100;
+
+        @media only screen and (max-width: 1200px) {
+            left: auto;
+        }
     }
+
+    // &::after {
+    //     content: '';
+    //     background: rgb(14, 164, 37);
+    //     background: radial-gradient(circle, #f35b0f 0%, rgb(6, 55, 205) 100%);
+    //     width: 100%;
+    //     max-width: 1200px;
+    //     left: calc(50% - 600px);
+    //     right: 0;
+    //     bottom: 0 - 600px;
+    //     height: 1200px;
+    //     position: absolute;
+    //     z-index: -100;
+    // }
 }
 
 main {
