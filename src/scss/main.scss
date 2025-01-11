@@ -6,6 +6,7 @@
 @use '_reset';
 @use '_header';
 @use '_footer';
+@use '_card';
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -14,7 +15,7 @@ body {
     color: #281E59;
     // font-family: 'PP Neue Montreal', sans-serif;
     font-family: 'Barlow', 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-    font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+    font-size: clamp(1rem, 0.34vi + 0.91rem, 1.1rem);
     font-optical-sizing: auto;
 
     &::before {
@@ -83,11 +84,11 @@ h5 {
 
 h1 {
     // font-size: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
-    font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+    font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.45rem);
 }
 
 h2 {
-    font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+    font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.45rem);
 }
 
 h5 {
@@ -100,8 +101,103 @@ strong {
 
 p {
     text-wrap: pretty;
+    font-weight: 500;
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 p.small {
     font-size: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+}
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+
+    &:hover::after {
+        opacity: 0.4;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: calc(var(--y, 0) * 1px - 50px);
+        left: calc(var(--x, 0) * 1px - 50px);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(white, #3984ff00 80%);
+
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    &.heavier:hover::after {
+        opacity: 0.6;
+    }
+}
+
+section.work,
+section.skills,
+section.about-me {
+    h5:first-of-type {
+        margin-bottom: 0.5rem;
+    }
+}
+
+section.work {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+section.skills {
+
+    .skills-items {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .card {
+            flex: calc(50% - 1rem);
+            background-color: rgb(253, 247, 244);
+            border: none;
+            position: relative;
+
+            h5,
+            p {
+                z-index: 10;
+            }
+
+            @media only screen and (max-width: 800px) {
+                flex: 100%;
+            }
+        }
+    }
+
+}
+
+section.about-me {
+    .signature {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .signature-image {
+            border-radius: 50%;
+            border: 1px solid #FDFCFC;
+        }
+
+        svg {
+            opacity: 0.9;
+        }
+    }
 }

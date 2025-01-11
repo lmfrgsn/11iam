@@ -26,18 +26,20 @@ header {
         // display: flex;
         // align-items: center;
         color: #281E59;
+        font-size: 1rem;
         text-decoration: none;
         font-weight: 500;
         border-radius: 2rem;
         padding: 0.25rem 1rem;
-        // border-bottom: 2px solid transparent;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid transparent;
 
         svg {
             display: inline-block;
         }
 
         &:hover {
-            // border-color: rgba(245, 227, 219, 1);
+            border-color: rgba(245, 227, 219, 1);
             background-color: rgba(245, 227, 219, 1);
         }
     }
