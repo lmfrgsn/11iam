@@ -28,13 +28,17 @@
                 <p class="small">Copyright <span id="year"></span> · Work In Progress</p>
             </div>
             <div class="right">
-                <div class="currently-widget" tooltip="21:34 GMT · Probably Sleeping">😴</div>
+                <div id="currentlyWidget" class="currently-widget" tooltip="21:34 GMT · Probably Sleeping">😴</div>
             </div>
         </footer>
     </main>
 </body>
 
 <script>
+
+    const date = new Date();
+    const time = date.getUTCHours().toString().padStart(2, '0') + ':' + date.getUTCMinutes().toString().padStart(2, '0');
+    const hour = date.getUTCHours();
 
     [...document.querySelectorAll('.shimmer')].forEach(function (item) {
         item.addEventListener('mousemove', function () {
@@ -44,7 +48,35 @@
         });
     });
 
-    document.getElementById("year").innerHTML = new Date().getFullYear()
+    document.getElementById("year").innerHTML = date.getFullYear()
+
+    console.log(hour);
+
+    if (hour < 7) {
+        status = "Probably sleeping";
+        statusEmoji = "😴";
+    } else if (hour < 9) {
+        status = "Probably walking";
+        statusEmoji = "🌅";
+    } else if (hour < 18) {
+        status = "Probably working";
+        statusEmoji = "👨‍💻";
+    } else if (hour < 19) {
+        status = "Probably cooking";
+        statusEmoji = "👨‍🍳";
+    } else if (hour < 21) {
+        status = "Probably watching The X Files";
+        statusEmoji = "🛸";
+    } else if (hour < 24) {
+        status = "Probably sleeping";
+        statusEmoji = "😴";
+    } else {
+        status = "sadsa";
+        statusEmoji = "dsfds";
+    }
+
+    document.getElementById("currentlyWidget").setAttribute("tooltip", time + ' · ' + status);
+
 </script>
 
 </html>

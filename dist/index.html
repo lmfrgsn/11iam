@@ -31,7 +31,7 @@
 <section class="work">
     <h5>Work History</h5>
     <div class="card work-card">
-        <div class="logo">logo</div>
+        <picture><source type="image/webp" srcset="/.11ty/image/?src=src%2Fimg%2Flogo--thrive.png&width=64&format=webp&via=transform 64w"><img class="logo" src="/.11ty/image/?src=src%2Fimg%2Flogo--thrive.png&width=64&format=jpeg&via=transform" alt="Small Thrive logo in a square" width="64" height="64"></picture>
         <div class="role">
             <p>Thrive.App</p>
             <p>Product Designer</p>
@@ -39,7 +39,7 @@
         <p class="small">2022 — Present</p>
     </div>
     <div class="card work-card">
-        <div class="logo">logo</div>
+        <picture><source type="image/webp" srcset="/.11ty/image/?src=src%2Fimg%2Flogo--allstate.png&width=64&format=webp&via=transform 64w"><img class="logo" src="/.11ty/image/?src=src%2Fimg%2Flogo--allstate.png&width=64&format=jpeg&via=transform" alt="Small Allstate logo in a square" width="64" height="64"></picture>
         <div class="role">
             <p>Allstate</p>
             <p>Product Designer</p>
@@ -47,7 +47,7 @@
         <p class="small">2022</p>
     </div>
     <div class="card work-card">
-        <div class="logo">logo</div>
+        <picture><source type="image/webp" srcset="/.11ty/image/?src=src%2Fimg%2Flogo--aphix.png&width=64&format=webp&via=transform 64w"><img class="logo" src="/.11ty/image/?src=src%2Fimg%2Flogo--aphix.png&width=64&format=jpeg&via=transform" alt="Small Experlogix logo in a square" width="64" height="64"></picture>
         <div class="role">
             <p>Experlogix / Aphix Software</p>
             <p>Senior UI/UX Designer & Frontend Developer</p>
@@ -55,7 +55,7 @@
         <p class="small">2017 — 2021</p>
     </div>
     <div class="card work-card">
-        <div class="logo">logo</div>
+        <picture><source type="image/webp" srcset="/.11ty/image/?src=src%2Fimg%2Flogo--gg.png&width=64&format=webp&via=transform 64w"><img class="logo" src="/.11ty/image/?src=src%2Fimg%2Flogo--gg.png&width=64&format=jpeg&via=transform" alt="Small G&G logo in a square" width="64" height="64"></picture>
         <div class="role">
             <p>G&G Advertising</p>
             <p>Digital Developer</p>
@@ -68,22 +68,22 @@
     <h5>Things I Like To Work On</h5>
     <div class="skills-items">
         <div class="card down skills-card shimmer heavier">
-            <h5>Strategy</h5>
+            <h5><strong>Strategy</strong></h5>
             <p>Amet exercitation dolor sunt voluptate ipsum dolor laborum nostrud duis nulla culpa. Nulla laboris esse.
             </p>
         </div>
         <div class="card down skills-card shimmer heavier">
-            <h5>Research</h5>
+            <h5><strong>Research</strong></h5>
             <p>Amet exercitation dolor sunt voluptate ipsum dolor laborum nostrud duis nulla culpa. Nulla laboris esse.
             </p>
         </div>
         <div class="card down skills-card shimmer heavier">
-            <h5>Interaction Design</h5>
+            <h5><strong>Interaction Design</strong></h5>
             <p>Amet exercitation dolor sunt voluptate ipsum dolor laborum nostrud duis nulla culpa. Nulla laboris esse.
             </p>
         </div>
         <div class="card down skills-card shimmer heavier">
-            <h5>Product Engineering</h5>
+            <h5><strong>Product Engineering</strong></h5>
             <p>Amet exercitation dolor sunt voluptate ipsum dolor laborum nostrud duis nulla culpa. Nulla laboris esse.
             </p>
         </div>
@@ -133,13 +133,17 @@
                 <p class="small">Copyright <span id="year"></span> · Work In Progress</p>
             </div>
             <div class="right">
-                <div class="currently-widget" tooltip="21:34 GMT · Probably Sleeping">😴</div>
+                <div id="currentlyWidget" class="currently-widget" tooltip="21:34 GMT · Probably Sleeping">😴</div>
             </div>
         </footer>
     </main>
 </body>
 
 <script>
+
+    const date = new Date();
+    const time = date.getUTCHours().toString().padStart(2, '0') + ':' + date.getUTCMinutes().toString().padStart(2, '0');
+    const hour = date.getUTCHours();
 
     [...document.querySelectorAll('.shimmer')].forEach(function (item) {
         item.addEventListener('mousemove', function () {
@@ -149,7 +153,35 @@
         });
     });
 
-    document.getElementById("year").innerHTML = new Date().getFullYear()
+    document.getElementById("year").innerHTML = date.getFullYear()
+
+    console.log(hour);
+
+    if (hour < 7) {
+        status = "Probably sleeping";
+        statusEmoji = "😴";
+    } else if (hour < 9) {
+        status = "Probably walking";
+        statusEmoji = "🌅";
+    } else if (hour < 18) {
+        status = "Probably working";
+        statusEmoji = "👨‍💻";
+    } else if (hour < 19) {
+        status = "Probably cooking";
+        statusEmoji = "👨‍🍳";
+    } else if (hour < 21) {
+        status = "Probably watching The X Files";
+        statusEmoji = "🛸";
+    } else if (hour < 24) {
+        status = "Probably sleeping";
+        statusEmoji = "😴";
+    } else {
+        status = "sadsa";
+        statusEmoji = "dsfds";
+    }
+
+    document.getElementById("currentlyWidget").setAttribute("tooltip", time + ' · ' + status);
+
 </script>
 
 </html>
