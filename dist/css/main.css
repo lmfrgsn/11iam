@@ -146,6 +146,7 @@ footer {
 .card .role {
   flex-grow: 1;
   margin: 0 1rem;
+  z-index: 10;
 }
 
 body {
@@ -229,6 +230,10 @@ p.small {
   font-size: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 }
 
+::selection {
+  background: rgb(245, 227, 219);
+}
+
 .shimmer {
   position: relative;
   overflow: hidden;
@@ -243,12 +248,15 @@ p.small {
   left: calc(var(--x, 0) * 1px - 50px);
   width: 100px;
   height: 100px;
-  background: radial-gradient(white, rgba(57, 132, 255, 0) 80%);
+  background: radial-gradient(white, rgba(255, 255, 255, 0) 80%);
   opacity: 0;
   transition: opacity 0.2s;
 }
 .shimmer.heavier:hover::after {
   opacity: 0.6;
+}
+.shimmer.onwhite::after {
+  background: radial-gradient(rgb(253, 247, 244), rgba(255, 255, 255, 0) 80%);
 }
 
 section.work h5:first-of-type,

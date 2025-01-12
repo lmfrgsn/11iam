@@ -113,6 +113,10 @@ p.small {
     font-size: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 }
 
+::selection {
+    background: rgb(245, 227, 219)
+}
+
 .shimmer {
     position: relative;
     overflow: hidden;
@@ -128,14 +132,17 @@ p.small {
         left: calc(var(--x, 0) * 1px - 50px);
         width: 100px;
         height: 100px;
-        background: radial-gradient(white, #3984ff00 80%);
-
+        background: radial-gradient(white, #ffffff00 80%);
         opacity: 0;
         transition: opacity 0.2s;
     }
 
     &.heavier:hover::after {
         opacity: 0.6;
+    }
+
+    &.onwhite::after {
+        background: radial-gradient(rgb(253, 247, 244), #ffffff00 80%);
     }
 }
 

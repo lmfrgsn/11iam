@@ -36,9 +36,9 @@
 
 <script>
 
-    const date = new Date();
-    const time = date.getUTCHours().toString().padStart(2, '0') + ':' + date.getUTCMinutes().toString().padStart(2, '0');
-    const hour = date.getUTCHours();
+    let date = new Date();
+    let time = date.getUTCHours().toString().padStart(2, '0') + ':' + date.getUTCMinutes().toString().padStart(2, '0');
+    let hour = date.getUTCHours();
 
     [...document.querySelectorAll('.shimmer')].forEach(function (item) {
         item.addEventListener('mousemove', function () {
@@ -48,34 +48,40 @@
         });
     });
 
-    document.getElementById("year").innerHTML = date.getFullYear()
+    document.getElementById("year").innerHTML = date.getFullYear();
 
-    console.log(hour);
+    setInterval(function updateTime() {
+        date = new Date();
+        time = date.getUTCHours().toString().padStart(2, '0') + ':' + date.getUTCMinutes().toString().padStart(2, '0');
+        hour = date.getUTCHours();
 
-    if (hour < 7) {
-        status = "Probably sleeping";
-        statusEmoji = "😴";
-    } else if (hour < 9) {
-        status = "Probably walking";
-        statusEmoji = "🌅";
-    } else if (hour < 18) {
-        status = "Probably working";
-        statusEmoji = "👨‍💻";
-    } else if (hour < 19) {
-        status = "Probably cooking";
-        statusEmoji = "👨‍🍳";
-    } else if (hour < 21) {
-        status = "Probably watching The X Files";
-        statusEmoji = "🛸";
-    } else if (hour < 24) {
-        status = "Probably sleeping";
-        statusEmoji = "😴";
-    } else {
-        status = "sadsa";
-        statusEmoji = "dsfds";
-    }
+        if (hour < 7) {
+            status = "Probably sleeping";
+            statusEmoji = "😴";
+        } else if (hour < 9) {
+            status = "Probably walking";
+            statusEmoji = "🌅";
+        } else if (hour < 18) {
+            status = "Probably working";
+            statusEmoji = "👨‍💻";
+        } else if (hour < 19) {
+            status = "Probably cooking";
+            statusEmoji = "👨‍🍳";
+        } else if (hour < 21) {
+            status = "Probably watching The X Files";
+            statusEmoji = "🛸";
+        } else if (hour < 24) {
+            status = "Probably sleeping";
+            statusEmoji = "😴";
+        } else {
+            status = "";
+            statusEmoji = "";
+        }
 
-    document.getElementById("currentlyWidget").setAttribute("tooltip", time + ' · ' + status);
+        document.getElementById("currentlyWidget").setAttribute("tooltip", time + ' · ' + status);
+
+        return updateTime;
+    }(), 2000);
 
 </script>
 
