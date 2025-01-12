@@ -19,7 +19,24 @@
 
     .role {
         flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 0 1rem;
         z-index: 10;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+
+    .logo {
+        max-width: none;
+    }
+
+    .job-date {
+        opacity: 0.7;
+        font-size: 0.9rem;
     }
 }

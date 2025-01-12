@@ -95,7 +95,7 @@ footer {
   height: 32px;
   font-size: 15px;
   background-color: #fff;
-  border: 1px solid #BAD0E8;
+  border: 1px solid rgb(253, 247, 244);
   border-radius: 50%;
   cursor: default;
 }
@@ -145,15 +145,32 @@ footer {
 }
 .card .role {
   flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 1rem;
   z-index: 10;
+}
+@media only screen and (max-width: 800px) {
+  .card .role {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+.card .logo {
+  max-width: none;
+}
+.card .job-date {
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
 body {
   background-color: #FEFCFB;
   color: #281E59;
-  font-family: "Barlow", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
-  font-size: clamp(1rem, 0.34vi + 0.91rem, 1.1rem);
+  font-family: "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   font-optical-sizing: auto;
 }
 body::before {
@@ -188,7 +205,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: 500;
+  font-weight: 400;
   text-wrap: pretty;
 }
 @media only screen and (max-width: 800px) {
@@ -202,24 +219,25 @@ h5 {
 }
 
 h1 {
-  font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.45rem);
+  font-size: clamp(1.15rem, 0.61vi + 1.1rem, 1.3rem);
 }
 
 h2 {
-  font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.45rem);
+  font-size: clamp(1.08rem, 0.61vi + 1.1rem, 1.2rem);
 }
 
 h5 {
-  font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+  font-size: clamp(0.8rem, 0.34vi + 0.91rem, 0.9rem);
+  font-weight: 500;
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 p {
   text-wrap: pretty;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 p:last-of-type {
@@ -262,15 +280,16 @@ p.small {
 section.work h5:first-of-type,
 section.skills h5:first-of-type,
 section.about-me h5:first-of-type {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgb(107, 84, 75);
 }
 
-section.work {
+section.work .work-items {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-section.work p {
+section.work .work-items p {
   margin-bottom: 0;
 }
 

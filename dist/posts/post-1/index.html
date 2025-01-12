@@ -71,6 +71,12 @@
         } else if (hour < 21) {
             status = "Probably watching The X Files";
             statusEmoji = "🛸";
+        } else if (hour < 22) {
+            status = "Probably working on something";
+            statusEmoji = "👨‍💻";
+        } else if (hour < 23) {
+            status = "Probably reading";
+            statusEmoji = "📚";
         } else if (hour < 24) {
             status = "Probably sleeping";
             statusEmoji = "😴";
@@ -80,6 +86,7 @@
         }
 
         document.getElementById("currentlyWidget").setAttribute("tooltip", time + ' · ' + status);
+        document.getElementById("currentlyWidget").innerHTML = statusEmoji;
 
         return updateTime;
     }(), 2000);
